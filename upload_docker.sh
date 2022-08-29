@@ -5,11 +5,14 @@
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+dockerpath=vanessa21/mlmicroapp
 
 # Step 2:  
 # Authenticate & tag
+docker login
+docker tag mlmicroapp vanessa21/mlmicroapp
 echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
 # Push image to a docker repository
+docker push vanessa21/mlmicroapp

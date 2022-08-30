@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Alumasa/ml_microservices_kubernetes/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Alumasa/ml_microservices_kubernetes/tree/main)
 
 ## This is the beginning of a fun project!
 
@@ -27,15 +27,7 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ## Setup the Environment
 
-* Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
-```bash
-python3 -m pip install --user virtualenv
-# You should have Python 3.7 available in your host. 
-# Check the Python path using `which python3`
-# Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
-```
+* Create a virtualenv with Python 3.7 and activate it.
 * Run `make install` to install the necessary dependencies
 
 ### Running `app.py`
@@ -50,3 +42,22 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+### Files in this repository
+
+* app.py - Python file with the Machine Learning prediction code.
+* Dockerfile - Contains a set of commands used to build a Docker image
+* README.md - Description of the project
+* Makefile - Contains instructions used by automation tools. It has these 4 commands:
+    * setup - Creates and activates the virtual environment
+    * install - Installs the required libraries and dependencies
+    * lint - Lints the Docker and Python code
+    * all - Runs all the above tasks
+* requirement.txt - Contains the list of libraries required by the application
+* run_docker.sh - A bash script that will build, tag and run a docker image.
+* run_kubernetes.sh - A bash script that runs the docker image with kubernetes, also performs port forwarding
+* upload_docker.sh - A bash script that tags and uploads the docker image to the DockerHub
+* make_predictions.sh - A bash script that requests the application to provide a prediction
+* config.yml - the CircleCI config file which builds the project automatically when commits are pushed.
+* docker_out.txt - Output logs of the prediction after executing run_docker.sh
+* kubernetes_out.txt - Output logs of the prediction after executing run_kubernetes.sh
